@@ -1,7 +1,4 @@
 export type Forward = { label: string; price: number; code?: string };
-
-// Central registry of forward prices per grade.
-// Extend freely for other grades; empty arrays are valid for unknown grades.
 export const forwardPrices: Record<string, Forward[]> = {
   "RBD Palm Oil": [
     { label: "August", price: 1000, code: "PO-MYRBD-M1" },
@@ -11,16 +8,36 @@ export const forwardPrices: Record<string, Forward[]> = {
     { label: "Jan/Feb/Mar", price: 1010, code: "PO-MYRBD-Q2" },
     { label: "Apr/May/June", price: 1005, code: "PO-MYRBD-Q3" },
   ],
-  // Example placeholders, to be completed as needed:
-  "RBD Palm Stearin": [],
-  "RBD Palm Olein IV56": [],
-  "Olein IV64": [],
-  "RBD PKO": [],
-  "RBD CNO": [],
-  "CDSBO": [],
+  "RBD Palm Olein IV56": [
+    { label: "August", price: 995 },
+    { label: "September", price: 1000 },
+    { label: "October", price: 1005 },
+    { label: "Oct/Nov/Dec", price: 1020 },
+    { label: "Jan/Feb/Mar", price: 1005 },
+    { label: "Apr/May/June", price: 1000 },
+  ],
+  "RBD Palm Stearin": [
+    { label: "August", price: 980 },
+    { label: "September", price: 985 },
+    { label: "October", price: 990 },
+    { label: "Oct/Nov/Dec", price: 1005 },
+    { label: "Jan/Feb/Mar", price: 995 },
+    { label: "Apr/May/June", price: 990 },
+  ],
+  "RBD CNO": [
+    { label: "August", price: 1180 },
+    { label: "September", price: 1185 },
+    { label: "October", price: 1190 },
+    { label: "Oct/Nov/Dec", price: 1205 },
+    { label: "Jan/Feb/Mar", price: 1195 },
+    { label: "Apr/May/June", price: 1190 },
+  ],
+  "RBD PKO": [
+    { label: "August", price: 1200 },
+    { label: "September", price: 1205 },
+    { label: "October", price: 1210 },
+    { label: "Oct/Nov/Dec", price: 1225 },
+    { label: "Jan/Feb/Mar", price: 1215 },
+    { label: "Apr/May/June", price: 1210 },
+  ],
 };
-
-export function getForwards(gradeName?: string): Forward[] {
-  if (!gradeName) return [];
-  return forwardPrices[gradeName] || [];
-}
